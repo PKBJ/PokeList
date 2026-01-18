@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PokeList</string>
+    <string name="back">Back</string>
+
+    <!-- List -->
+    <string name="list_error">Failed to load pokemons</string>
+    <string name="list_error_append">Failed to load more pokemons</string>
+
+    <!-- Details -->
+    <string name="details_error">Failed to load pokemon</string>
+</resources>
