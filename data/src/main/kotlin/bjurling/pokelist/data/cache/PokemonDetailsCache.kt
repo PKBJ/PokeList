@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
 internal interface PokemonDetailsCache {
-    fun get(pokemonId: PokemonId): PokemonDetails?
-    fun add(pokemonDetails: PokemonDetails)
+    fun get(id: PokemonId): PokemonDetails?
+    fun add(details: PokemonDetails)
 }
 
 internal class PokemonDetailsCacheImpl : PokemonDetailsCache {
@@ -15,9 +15,9 @@ internal class PokemonDetailsCacheImpl : PokemonDetailsCache {
     private val pokemonDetailsCache: MutableStateFlow<Map<PokemonId, PokemonDetails>> =
         MutableStateFlow(value = emptyMap())
 
-    override fun get(pokemonId: PokemonId): PokemonDetails? = pokemonDetailsCache.value[pokemonId]
+    override fun get(id: PokemonId): PokemonDetails? = pokemonDetailsCache.value[id]
 
-    override fun add(pokemonDetails: PokemonDetails) {
-        pokemonDetailsCache.update { it.plus(pair = pokemonDetails.id to pokemonDetails) }
+    override fun add(details: PokemonDetails) {
+        pokemonDetailsCache.update { it.plus(pair = details.id to details) }
     }
 }
